@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken');
-const UserModel = require('../models/userModel');
+const userModel = require('../models/user.model');
 
 require('dotenv').config();
 
 exports.signup = async (req, res) => {
 
-    const user = await UserModel.findOne({ username: req.user.username})
+    const user = await userModel.findOne({ username: req.user.username})
 
     user.firstname = req.body.firstName
     user.lastname = req.body.lastName
@@ -16,7 +16,7 @@ exports.signup = async (req, res) => {
     delete user.password
 
     res.status(201).json({
-        message: 'Signup successful',
+        message: 'You have successfully Signed up!',
         user: user
     });
 }
@@ -24,7 +24,7 @@ exports.signup = async (req, res) => {
 exports.login = (req, res, { err, user, info}) => {
 
     if (!user) {
-        return res.json({ message: 'Username or password is incorrect'})
+        return res.json({ message: 'Username or Password is Incorrect!'})
     }
 
     // req.login is provided by passport

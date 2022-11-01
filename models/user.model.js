@@ -7,11 +7,10 @@ const ObjectId = Schema.ObjectId;
 const UserModel = new Schema({
   id: ObjectId,
   created_at: Date,
-  username: { type: String, required: true },
-  firstname: { type: String,  },
-  lastname: { type: String, },
-  email: { type: String, },
-  username: { type: String, required: true },
+  username: { type: String, required: true, unique: true},
+  firstname: { type: String, required: true },
+  lastname: { type: String, required: true },
+  email: { type: String, required: true, unique: true},
   password: { type: String, required: true },
   user_type:  { 
     type: String, 

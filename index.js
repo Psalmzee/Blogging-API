@@ -2,25 +2,24 @@ const express = require('express');
 const passport = require('passport');
 require("dotenv").config();
 const cors = require("cors");
-const OrderRouter = require('./routes/OrderRoutes');
-const AuthRouter = require('./routes/AuthRoutes');
+const blogRouter = require('./routes/blog.route');
+const authRouter = require('./routes/auth.route');
 
 const app = express()
 
 // register passport
-require("./passport") 
+require("./Authentication/passport") 
 
 // middleware
 app.use(express.json());
-// app.use(BasicAuth)
 
 // routes
-app.use('/orders', passport.authenticate('jwt', { session: false  }), OrderRouter)
-app.use('/',  AuthRouter)
+app.use('/blogs', passport.authenticate('jwt', { session: false  }), blogRouter)
+app.use('/',  authRouter)
 
 // home route
 app.get('/', (req, res) => {
-    return res.json({ status: true })
+    return res.json({ message: 'WeBlog-API Home Route!', status: true })
 })
 
 // 404 route
