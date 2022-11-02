@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const cors = require("cors");
 
+const Database = require('./database/db');
+
 
 //Custom Router
 const blogRouter = require('./routes/blog.route');
@@ -17,7 +19,10 @@ require("./Authentication/passport-jwt")  //signup and login authentication midd
 
 const app = express();
 
+const PORT = process.env.PORT || 9002
 
+// connect to database
+Database.connectToMongoDB();
 
 // middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,4 +56,8 @@ app.use((error, req, res) => {
     return res.status(500).json({ message: 'Server Failed to Process Your Request!'})
 })
 
-module.exports = app;
+
+app.listen(PORT, () => {
+    console.log(`Server started on http://localhost:${PORT}`)
+})
+// module.exports = app;
