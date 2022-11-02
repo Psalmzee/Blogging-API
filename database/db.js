@@ -1,18 +1,19 @@
-const mongoose = require('mongoose');
+const moogoose = require('mongoose');
+require('dotenv').config();
 
-const connect = (url) => {
-    mongoose.connect(url || 'mongodb://localhost:27017')
+const MONGODB_URI = process.env.MONGODB_URI
 
-    mongoose.connection.on("connected", () => {
-        console.log("Connected to MongoDB Successfully");
+// connect to mongodb
+function connectToMongoDB() {
+    moogoose.connect(MONGODB_URI);
+
+    moogoose.connection.on('connected', () => {
+        console.log('Connected to MongoDB successfully');
     });
 
-    mongoose.connection.on("error", (err) => {
-        console.log("An error occurred while connecting to MongoDB");
-        console.log(err);
-    });
+    moogoose.connection.on('error', (err) => {
+        console.log('Error connecting to MongoDB', err);
+    })
 }
 
-module.exports = {
-    connect
-};
+module.exports = { connectToMongoDB };
