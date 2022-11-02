@@ -26,7 +26,7 @@ const createBlog = async (req, res, next) => {
   }
 }
 
-const getListOfPublishedBlogs = async (req, res, next) => {
+const PublishedBlogs = async (req, res, next) => {
   try {
     const blogs = await Blog
       .find({ state: 'published' })
@@ -43,7 +43,7 @@ const getListOfPublishedBlogs = async (req, res, next) => {
   }
 }
 
-const getPublishedBlog = async (req, res, next) => {
+const PublishedBlog = async (req, res, next) => {
   try {
     const { id } = req.params
     const blog = await Blog.findById(id)
@@ -72,6 +72,6 @@ const getPublishedBlog = async (req, res, next) => {
 
 module.exports = {
   createBlog,
-  getListOfPublishedBlogs,
-  getPublishedBlog,
+  PublishedBlogs,
+  PublishedBlog,
 }

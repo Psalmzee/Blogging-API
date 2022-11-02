@@ -8,5 +8,5 @@ const PORT = process.env.PORT || 9002
 Database.connect();
 
 app.listen(PORT, () => {
-    console.log('Listening on port, ', PORT)
+    console.log(`Server started on http://localhost:${PORT}`)
 })
