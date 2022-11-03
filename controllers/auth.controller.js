@@ -7,16 +7,17 @@ exports.signup = async (req, res) => {
 
     const user = await userModel.findOne({ username: req.user.username})
 
-    user.firstname = req.body.firstName
-    user.lastname = req.body.lastName
+    user.firstname = req.body.firstname
+    user.lastname = req.body.lastname
     user.email = req.body.email
+    user.username = req.body.username
 
     await user.save()
 
     delete user.password
 
     res.status(201).json({
-        message: 'You have successfully Signed up!',
+        message: 'You have Successfully Signed up!',
         user: user
     });
 }

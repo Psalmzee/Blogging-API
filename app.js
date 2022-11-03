@@ -11,13 +11,17 @@ const Database = require('./database/db');
 const blogRouter = require('./routes/blog.route');
 const authRouter = require('./routes/auth.route');
 
+const app = express();
 
 require("dotenv").config();
 
-// Register passport
-require("./Authentication/passport-jwt")  //signup and login authentication middleware
+// Use passport middleware
+app.use(passport.initialize())
 
-const app = express();
+// Register passport
+require("./Authentication/passport-jwt")(passport) //signup and login authentication middleware
+
+
 
 const PORT = process.env.PORT || 9002
 
@@ -25,24 +29,29 @@ const PORT = process.env.PORT || 9002
 Database.connectToMongoDB();
 
 // middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
 
-app.use('/',  authRouter);
+app.use('/api',  authRouter);
 
+// app.post('/api/signup', (req, res)=>{
+// console.log(req.body)
+// res.end("I av terminated")
+// })
+// app.use('/api/blogs', blogRouter)
 // Authenticated Routes
 app.use('/api/blogs', passport.authenticate('jwt', { session: false  }), blogRouter)
 
 
-app.get('/testing', function(req, res, next) {
+app.get('/', function(req, res, next) {
     return res.send("Test Route, Server is working!")
 });
 
 
 // home route
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     return res.json({ message: 'WeBlog-API Home Route!', status: true })
 })
 
@@ -60,4 +69,3 @@ app.use((error, req, res) => {
 app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`)
 })
-// module.exports = app;

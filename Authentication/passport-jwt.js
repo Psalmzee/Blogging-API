@@ -6,6 +6,7 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 
 const userModel = require('../models/user.model');
 
+module.exports = (passport) => {
 passport.use(
     new JWTstrategy(
         {
@@ -31,11 +32,16 @@ passport.use(
     new localStrategy(
         {
             usernameField: 'email',
-            passwordField: 'password'
+            passwordField: 'password',
+            passReqToCallback: true
         },
-        async (email, password, done) => {
+        
+        async (req, email, password, done) => {
+            
             try {
-                const user = await UserModel.create({ email, password });
+                const username = req.body.username
+                console.log(username, 123)
+                const user = await userModel.create({ email, password, username });
 
                 return done(null, user);
             } catch (error) {
@@ -57,7 +63,7 @@ passport.use(
         },
         async (email, password, done) => {
             try {
-                const user = await UserModel.findOne({ email });
+                const user = await userModel.findOne({ email });
 
                 if (!user) {
                     return done(null, false, { message: 'User not found' });
@@ -66,10 +72,10 @@ passport.use(
                 const validate = await user.isValidPassword(password);
 
                 if (!validate) {
-                    return done(null, false, { message: 'Wrong Password' });
+                    return done(null, false, { message: 'Wrong Password!' });
                 }
 
-                return done(null, user, { message: 'Logged in Successfully' });
+                return done(null, user, { message: 'Logged in Successfully!' });
             } catch (error) {
                 return done(error);
             }
@@ -77,3 +83,4 @@ passport.use(
     )
 );
 
+    }

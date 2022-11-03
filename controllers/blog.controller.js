@@ -3,10 +3,13 @@ const { readingTime } = require('../utils/utils')
 
 const createBlog = async (req, res, next) => {
   try {
-    // grab details from the request
+
+    // Get details from the request
     const { title, description, tags, body } = req.body
+
     // create blog object
     const newBlog = new Blog({
+
       title,
       description: description || title,
       tags,
@@ -14,6 +17,8 @@ const createBlog = async (req, res, next) => {
       body,
       reading_time: readingTime(body)
     })
+
+
     // save to database
     const createdBlog = await newBlog.save()
     // return response
@@ -26,7 +31,7 @@ const createBlog = async (req, res, next) => {
   }
 }
 
-const PublishedBlogs = async (req, res, next) => {
+const publishedBlogs = async (req, res, next) => {
   try {
     const blogs = await Blog
       .find({ state: 'published' })
@@ -43,7 +48,7 @@ const PublishedBlogs = async (req, res, next) => {
   }
 }
 
-const PublishedBlog = async (req, res, next) => {
+const publishedBlog = async (req, res, next) => {
   try {
     const { id } = req.params
     const blog = await Blog.findById(id)
@@ -72,6 +77,6 @@ const PublishedBlog = async (req, res, next) => {
 
 module.exports = {
   createBlog,
-  PublishedBlogs,
-  PublishedBlog,
+  publishedBlogs,
+  publishedBlog,
 }

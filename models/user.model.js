@@ -1,29 +1,35 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
-
-const UserModel = new Schema({
-  id: ObjectId,
-  created_at: Date,
-  username: { type: String, required: true, unique: true},
-  firstname: { type: String, required: true },
-  lastname: { type: String, required: true },
-  email: { type: String, required: true, unique: true},
-  password: { type: String, required: true },
-  user_type:  { 
-    type: String, 
-    required: true, 
-    enum: ['user', 'admin'], 
-    default: 'user' 
-  }
-});
+const UserSchema = new mongoose.Schema({
+  firstname: {
+    type: String
+    // required: true,
+  },
+  lastname: {
+    type: String
+    // required: true,
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+})
 
 // The code in the UserScheme.pre() function is called a pre-hook.
 // Before the user information is saved in the database, this function will be called,
 // you will get the plain text password, hash it, and store it.
-UserModel.pre(
+UserSchema.pre(
   'save',
   async function (next) {
       const user = this;
@@ -35,13 +41,10 @@ UserModel.pre(
 );
 
 // You will also need to make sure that the user trying to log in has the correct credentials. Add the following new method:
-UserModel.methods.isValidPassword = async function(password) {
+UserSchema.methods.isValidPassword = async function(password) {
   const user = this;
   const compare = await bcrypt.compare(password, user.password);
 
   return compare;
 }
-
-const User = mongoose.model('Users', UserModel);
-
-module.exports = User;
+module.exports = mongoose.model('User', UserSchema)
