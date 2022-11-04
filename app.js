@@ -42,7 +42,7 @@ app.use('/api',  authRouter);
 // })
 // app.use('/api/blogs', blogRouter)
 // Authenticated Routes
-app.use('/api/blogs', passport.authenticate('jwt', { session: false  }), blogRouter)
+app.use('/api/blogs', blogRouter)
 
 
 app.get('/', function(req, res, next) {

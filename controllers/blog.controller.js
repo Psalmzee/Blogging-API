@@ -1,5 +1,5 @@
 const Blog = require('../models/blog.model')
-const { readingTime } = require('../utils/utils')
+const { estimatedReadingTime } = require('../helpers/readingTime.helper')
 
 const createBlog = async (req, res, next) => {
   try {
@@ -7,7 +7,7 @@ const createBlog = async (req, res, next) => {
     // Get details from the request
     const { title, description, tags, body } = req.body
 
-    // create blog object
+    // create new blog object
     const newBlog = new Blog({
 
       title,
@@ -15,7 +15,7 @@ const createBlog = async (req, res, next) => {
       tags,
       author: req.user._id,
       body,
-      reading_time: readingTime(body)
+      reading_time: estimatedReadingTime(body)
     })
 
 
@@ -57,7 +57,7 @@ const publishedBlog = async (req, res, next) => {
     if (blog.state !== 'published') {
       return res.status(403).json({
         status: false,
-        error: 'Requested article is not published'
+        error: 'Requested Blog is not Published!'
       })
     }
 

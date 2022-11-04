@@ -6,6 +6,7 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 
 const userModel = require('../models/user.model');
 
+
 module.exports = (passport) => {
 passport.use(
     new JWTstrategy(
@@ -40,8 +41,9 @@ passport.use(
             
             try {
                 const username = req.body.username
-                console.log(username, 123)
-                const user = await userModel.create({ email, password, username });
+                const firstname = req.body.firstname
+                const lastname = req.body.lastname
+                const user = await userModel.create({ username, firstname, lastname, email, password });
 
                 return done(null, user);
             } catch (error) {
@@ -66,7 +68,7 @@ passport.use(
                 const user = await userModel.findOne({ email });
 
                 if (!user) {
-                    return done(null, false, { message: 'User not found' });
+                    return done(null, false, { message: 'User not Found!' });
                 }
 
                 const validate = await user.isValidPassword(password);
@@ -82,5 +84,4 @@ passport.use(
         }
     )
 );
-
-    }
+}
