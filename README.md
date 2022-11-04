@@ -121,8 +121,8 @@ Best of luck!
 ## Base URL
 - https://altschoolafrica-weblog-api.cyclic.app/
 
-## POSTMAN URL (For Testing of API Endpoints)
-- https://www.getpostman.com/collections/0497b96665eb1cb37b0b
+## POSTMAN (For Testing API Endpoints)
+- https://www.getpostman.com/collections/0497b96665eb1cb37b0b 
 - Direction: Open Postman, Navigate to "import" collection, select "link" option, Paste the Postman JSON link provided here!
 
 
@@ -132,27 +132,25 @@ Best of luck!
 ### User Schema
 | field  |  data_type | constraints  |
 |---|---|---|
-|  id |  string |  required |
-|  username |  string |  required |
-|  firstname | string  |  optional|
-|  lastname  |  string |  optional  |
-|  email     | string  |  optional |
+|  username |  string |  required, unique |
+|  firstname | string  |  required|
+|  lastname  |  string |  required  |
+|  email     | string  |  required, unique |
 |  password |   string |  required  |
-|  user_type |  string |  required, default: user, enum: ['user', 'admin'] |
 
 
 ### Blog Schema
 | field  |  data_type | constraints  |
 |---|---|---|
-|  id |  string |  required |
-|  created_at |  date |  required |
-|  state | number  |  required,default:1|
-|  total_price  |  number |  required  |
-|  items     | array  |  required |
-|  item.name |   string |  required  |
-|  item.price |  number |  required |
-|  item.size |  string |  required, enum: ['m', 's', 'l'] |
-|  item.quantity |  number |  required, enum: ['m', 's', 'l'] |
+|  title |  string |  required, unique |
+|  description |  string |  |
+|  author | ObjectId  |  ref: 'User', required |
+|  state  |  string | default: 'draft', enum: ['draft', 'published']  |
+|  read_count    | number  |  default: 0 |
+|  reading_time |   number |    |
+|  tags |  string |   |
+|  body |  string |  required |
+|  timestamps |   |  |
 
 
 
