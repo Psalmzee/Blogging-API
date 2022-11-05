@@ -66,7 +66,7 @@ UserSchema.pre('save', function (next) {
 })
 
 // Compare user inputted password with password in the database
-UserSchema.methods.passwordIsValid = function (password) {
+UserSchema.methods.isValidPassword = function (password) {
   // get password from the database
   const passwordHash = this.password
   return new Promise((resolve, reject) => {

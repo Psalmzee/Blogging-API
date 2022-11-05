@@ -3,6 +3,8 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const cors = require("cors");
+const errorHandler = require('./middleware/errHandler')
+const pagination = require('./middleware/pagination')
 
 const Database = require('./database/db');
 
@@ -42,6 +44,7 @@ app.use('/api',  authRouter);
 // })
 // app.use('/api/blogs', blogRouter)
 // Authenticated Routes
+app.use(pagination)
 app.use('/api/blogs', blogRouter)
 
 
@@ -55,15 +58,18 @@ app.get('/api', (req, res) => {
     return res.json({ message: 'WeBlog-API Home Route!', status: true })
 })
 
-// 404 Errors
-app.use('*', (req, res) => {
-    return res.status(404).json({ message: 'Route not Found!' })
-});
-
 // Server Errors
 app.use((error, req, res) => {
     return res.status(500).json({ message: 'Server Failed to Process Your Request!'})
 })
+
+// use error handler middleware
+app.use(errorHandler)
+
+// 404 Errors
+app.use('*', (req, res) => {
+    return res.status(404).json({ message: 'Route not Found!' })
+});
 
 
 app.listen(PORT, () => {

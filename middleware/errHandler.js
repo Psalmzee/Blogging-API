@@ -2,13 +2,13 @@
  * Error handler middleware
  */
  module.exports = (error, req, res, next) => {
-    if (error.message === 'data and hash arguments required') {
+    if (error.message === 'Data and hash arguments required!') {
       return res.status(403).json({
-        error: 'please provide password',
+        error: 'Please provide Password!',
       })
     }
   
-    if (error.source === 'jwt middleware error') {
+    if (error.source === 'JWT middleware error') {
       return res.status(403).json({
         status: false,
         error: 'invalid token',

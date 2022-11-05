@@ -25,21 +25,28 @@ exports.signup = async (req, res) => {
 exports.login = (req, res, { err, user, info}) => {
 
     if (!user) {
-        return res.json({ message: 'Username or Password is Incorrect!'})
+        return res.json({ message: 'Email or Password is Incorrect!'})
     }
 
     // req.login is provided by passport
     req.login(user, { session: false },
         async (error) => {
             if (error) return res.status(400).json(error)
-
-            const body = { _id: user._id, username: user.username };
+          
+            const validityPeriod = '1h'
+            const body = { _id: user._id, email: user.email };
             //You store the id and username in the payload of the JWT. 
             // You then sign the token with a secret or key (JWT_SECRET), and send back the token to the user.
             // DO NOT STORE PASSWORDS IN THE JWT!
-            const token = jwt.sign({ user: body }, process.env.JWT_SECRET || 'something_secret');
+            const token = jwt.sign({ user: body }, process.env.JWT_SECRET || 'something_secret', { expiresIn: validityPeriod });
 
-            return res.status(200).json({ token });
+            return res.status(200).json({
+                 message: 'Login Successful!',
+                 username: user.username, 
+                 firstname: user.firstname,
+                 lastname: user.lastname,
+                 token 
+                });
         }
     );
 }
