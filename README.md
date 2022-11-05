@@ -1,5 +1,5 @@
 ﻿# WeBlog
-##### A blogging-API built in partial fulfilment of the Altschool of Engineering focused in Backend Engineering (NodeJS) Second Semester Requirement`
+##### A blogging-API built in partial fulfilment of the Altschool of Engineering focused in Backend Engineering (NodeJS) Second Semester Requirement
 
 ## Backend NodeJS Second Semester Examination Project
 
