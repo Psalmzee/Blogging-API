@@ -1,17 +1,15 @@
 const express = require('express');
 const passport = require('passport');
 const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
-const cors = require("cors");
-const errorHandler = require('./middleware/errHandler')
-const pagination = require('./middleware/pagination')
 
-const Database = require('./database/db');
 
+// const Database = require('./database/db');
 
 //Custom Router
 const blogRouter = require('./routes/blog.route');
 const authRouter = require('./routes/auth.route');
+const unknownEndpoint = require('./middleware/unknownEndpoint');
+const errorHandler = require('./middleware/errHandler')
 
 const app = express();
 
@@ -25,18 +23,16 @@ require("./Authentication/passport-jwt")(passport) //signup and login authentica
 
 
 
-const PORT = process.env.PORT || 9002
+// const PORT = process.env.PORT || 9002
 
 // connect to database
-Database.connectToMongoDB();
+// Database.connectToMongoDB();
 
-// middleware
+// middleware to parse information from request
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-
-app.use('/api',  authRouter);
 
 // app.post('/api/signup', (req, res)=>{
 // console.log(req.body)
@@ -44,7 +40,7 @@ app.use('/api',  authRouter);
 // })
 // app.use('/api/blogs', blogRouter)
 // Authenticated Routes
-app.use(pagination)
+app.use('/api',  authRouter);
 app.use('/api/blogs', blogRouter)
 
 
@@ -63,6 +59,9 @@ app.use((error, req, res) => {
     return res.status(500).json({ message: 'Server Failed to Process Your Request!'})
 })
 
+//middleware for unrecognized endpoints
+app.use(unknownEndpoint)
+
 // use error handler middleware
 app.use(errorHandler)
 
@@ -72,6 +71,4 @@ app.use('*', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log(`Server started on http://localhost:${PORT}`)
-})
+module.exports = app
