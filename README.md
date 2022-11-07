@@ -498,4 +498,10 @@ npm run test
 
 - Project Link: [WeBlog](https://github.com/Psalmzee/WeBlog-API)
 
+---
+## PROJECT OWNER
+- NAME: Samson Okeji 
+- ALTSCHOOL EMAIL: engrsamsonokeji@gmail.com
+- TRACK: Backend Engineering (NodeJS)
+
 
