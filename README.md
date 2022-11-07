@@ -1,10 +1,10 @@
 
 <!-- Project Shields -->
-<div align="center">
+<div align="left">
   
 
 <div>
-  <p align="center">
+  <p align="left">
     <a href="https://github.com/Psalmzee/WeBlog-API/blob/main/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -23,7 +23,7 @@
 
 ### Built With:
 
-<div align="center">
+<div align="left">
 
 ![Javascript][javascript]
 ![Node.js][node]
