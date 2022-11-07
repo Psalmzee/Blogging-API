@@ -1,6 +1,3 @@
-<!-- Back to Top Navigation Anchor -->
-
-<a name="readme-top"></a>
 
 <!-- Project Shields -->
 <div align="center">
@@ -23,7 +20,6 @@
 ## Backend NodeJS Second Semester Examination Project
 &mdash; A blogging-API built in partial fulfilment of the Altschool of Engineering focused in Backend Engineering (NodeJS) Second Semester Requirement by <a href="https://www.github.com/psalmzee">psalmzee</a>, a Backend Engineering student at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa</a>.
 
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ### Built With:
 
@@ -35,8 +31,6 @@
 ![MongoDB][mongodb]
 
 </div>
-
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -91,8 +85,6 @@
 - [x] Come up with any algorithm for calculating the reading_time of the blog.
 
 - [x] Write tests for all endpoints
-
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -160,8 +152,6 @@ npm run test
 | tags         | array      | optional                                                 |
 | body         | string     | required                                                 |
 
-<p align="right"><a href="#readme-top">back to top</a></p>
-
 ---
 
 ## Usage
@@ -203,8 +193,6 @@ npm run test
 }
 ```
 
-<p align="right"><a href="#readme-top">back to top</a></p>
-
 ---
 
 ### Logging in
@@ -230,8 +218,6 @@ npm run test
   "name": "John"
 }
 ```
-
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -273,8 +259,6 @@ npm run test
   }
 }
 ```
-
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -328,7 +312,6 @@ npm run test
       /api/blog?fields=body,-tags,reading_time
       ```
 
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -385,8 +368,6 @@ npm run test
       /api/blog?fields=body,-tags,reading_time
       ```
 
-<p align="right"><a href="#readme-top">back to top</a></p>
-
 ---
 
 ### Get specific blog
@@ -424,8 +405,6 @@ npm run test
 }
 ```
 
-<p align="right"><a href="#readme-top">back to top</a></p>
-
 ---
 
 ### Update the state of a Blog
@@ -433,7 +412,7 @@ npm run test
 - Route: /api/blog/:articleId
 - Method: PATCH
 - Header
-  - Authorization: Bearer {token}
+    - Authorization: Bearer {token}
 
 :point_down: Body
 
@@ -464,7 +443,6 @@ npm run test
 }
 ```
 
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -473,7 +451,7 @@ npm run test
 - Route: /api/blog/:articleId
 - Method: PUT
 - Header
-  - Authorization: Bearer {token}
+- Authorization: Bearer {token}
 
 :point_down: Body
 
@@ -505,7 +483,6 @@ npm run test
 }
 ```
 
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -514,16 +491,11 @@ npm run test
 - Route: /api/blog/:articleId
 - Method: DELETE
 - Header
-  - Authorization: Bearer {token}
-
-
-<p align="right"><a href="#readme-top">back to top</a></p>
+- Authorization: Bearer {token}
 
 
 ---
 
 - Project Link: [WeBlog](https://github.com/Psalmzee/WeBlog-API)
-
-<p align="right"><a href="#readme-top">back to top</a></p>
 
 
