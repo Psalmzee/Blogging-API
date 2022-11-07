@@ -27,9 +27,9 @@ app.use(requestLogger)
 app.get('/', (req, res) => {
   res.json({
     status: 'status',
-    message: 'Visit the following link(s) for details about usage',
-    link: 'https://github.com/tobisupreme/blogolicious#usage',
-    readme: 'https://github.com/tobisupreme/blogolicious#readme',
+    message: 'Welcome to the Home Route of WeBlog API!',
+    message: 'For Further Information, see README below:',
+    readme: 'https://github.com/Psalmzee/WeBlog-API/blob/main/README.md',
   })
 })
 
