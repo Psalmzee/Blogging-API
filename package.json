@@ -1,7 +1,7 @@
 {
-  "name": "blogolicious",
+  "name": "weblog-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A blogging-API built in partial fulfilment of the Altschool of Engineering focused in Backend Engineering (NodeJS) Second Semester Requirement by Samson Okeji, a Backend Engineering student at AltSchool Africa.",
   "main": "app.js",
   "scripts": {
     "test": "NODE_ENV=test jest --detectOpenHandles --coverage",
@@ -9,7 +9,7 @@
     "dev": "NODE_ENV=development nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Samson Okeji",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.26.0",
