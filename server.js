@@ -1,14 +1,6 @@
 const http = require('http')
 const app = require('./app')
-require("dotenv").config();
-const Database = require('./database/db');
-const PORT = process.env.PORT || 9002
-
-
-//connect to mongodb database
-Database.connectToMongoDB();
+const { PORT } = require('./config/config')
 
 const server = http.createServer(app)
-server.listen(PORT, () => console.log(`Server started on http://localhost:${PORT}`))
-
-
+server.listen(PORT, () => console.log(`Running in ${process.env.NODE_ENV} mode on port ${PORT}`))

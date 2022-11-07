@@ -11,7 +11,7 @@ beforeEach(async () => {
     lastName: 'One',
     username: 'user1',
     email: 'user1@mail.com',
-    password: 'Altschooler123',
+    password: 'Password0!',
   })
 })
 
@@ -21,7 +21,7 @@ describe('POST request to /api/login', () => {
       .post('/api/login')
       .send({
         username: 'user1',
-        password: 'Altschooler123',
+        password: 'Password0!',
       })
       .expect(200)
 

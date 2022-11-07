@@ -1,8 +1,8 @@
-const Blog = require('../models/blog.model')
+const Blog = require('../models/blogs.model')
 
-const create_blog = async (req, res, next) => {
+const createBlog = async (req, res, next) => {
   try {
-    // get details from the request
+    // grab details from the request
     const { title, description, tags, body } = req.body
     // create blog object
     const newBlog = new Blog({
@@ -17,7 +17,7 @@ const create_blog = async (req, res, next) => {
     const createdBlog = await newBlog.save()
 
     // save blog ID to user document
-    req.user.blogs = req.user.blogs.concat(createdBlog._id)
+    req.user.articles = req.user.articles.concat(createdBlog._id)
     await req.user.save()
 
     // return response
@@ -31,7 +31,7 @@ const create_blog = async (req, res, next) => {
   }
 }
 
-const get_blogs = async (req, res, next) => {
+const getBlogs = async (req, res, next) => {
   try {
     const blogs = await Blog
       .find(req.findFilter)
@@ -54,24 +54,23 @@ const get_blogs = async (req, res, next) => {
   }
 }
 
-const get_blog = async (req, res, next) => {
+const getBlog = async (req, res, next) => {
   try {
     const { id } = req.params
-
     const blog = await Blog.findById(id).populate('author', { username: 1 })
 
     if (!blog) {
       return res.status(404).json({
-        status: 'Operation Failed!',
-        message: 'Blog Not Found!'
+        status: 'fail',
+        message: 'Blog not found'
       })
     }
 
     if (blog.state !== 'published') {
       const response = (res) => {
         return res.status(403).json({
-          status: 'Operation Failed!',
-          error: 'Requested Blog is not yet Published!',
+          status: 'fail',
+          error: 'Requested article is not published',
         })
       }
       if (!req.user) {
@@ -81,7 +80,7 @@ const get_blog = async (req, res, next) => {
       }
     }
 
-    // Updating blog read-count //read_count not accessible
+    // update blog read count
     blog.read_count += 1
     await blog.save()
 
@@ -95,20 +94,20 @@ const get_blog = async (req, res, next) => {
   }
 }
 
-const update_blog_by_state = async (req, res, next) => {
+const updateBlogState = async (req, res, next) => {
   try {
     let { state } = req.body
 
     if (!(state && (state.toLowerCase() === 'published' || state.toLowerCase() === 'draft'))) {
-      throw new Error('Please Provide a Valid State!, "draft" or "published"?')
+      throw new Error('Please provide a valid state')
     }
 
     const blog = await Blog.findByIdAndUpdate(req.params.id, { state: state.toLowerCase() }, { new: true, runValidators: true, context: 'query' })
 
     if (!blog) {
       return res.status(404).json({
-        status: 'Operation Failed!',
-        message: 'Blog not Found!'
+        status: 'fail',
+        message: 'Blog not found'
       })
     }
 
@@ -117,12 +116,12 @@ const update_blog_by_state = async (req, res, next) => {
       data: blog
     })
   } catch (err) {
-    err.source = 'updating blog by state'
+    err.source = 'update blog'
     next(err)
   }
 }
 
-const update_blog = async (req, res, next) => {
+const updateBlog = async (req, res, next) => {
   try {
     let blogUpdate = { ...req.body }
 
@@ -132,8 +131,8 @@ const update_blog = async (req, res, next) => {
 
     if (!blog) {
       return res.status(404).json({
-        status: 'Operation Failed!',
-        message: 'Blog not Found!'
+        status: 'fail',
+        message: 'Blog not found'
       })
     }
 
@@ -142,27 +141,25 @@ const update_blog = async (req, res, next) => {
       data: blog
     })
   } catch (err) {
-    err.source = 'updating blog'
+    err.source = 'update blog'
     next(err)
   }
 }
 
-const delete_blog = async (req, res, next) => {
+const deleteBlog = async (req, res, next) => {
   const user = req.user
   try {
     const deletedBlog = await Blog.findByIdAndRemove(req.params.id)
 
     if (!deletedBlog) {
       return res.status(404).json({
-        status: 'Operation Failed!',
-        error: 'Blog not Found!'
+        status: 'fail',
+        error: 'Blog not found'
       })
     }
-
-
     const deletedBlogId = deletedBlog._id
-    const index = user.blogs.indexOf(deletedBlogId)
-    user.blogs.splice(index, 1)
+    const index = user.articles.indexOf(deletedBlogId)
+    user.articles.splice(index, 1)
 
     await user.save()
 
@@ -176,10 +173,10 @@ const delete_blog = async (req, res, next) => {
 }
 
 module.exports = {
-  create_blog,
-  get_blogs,
-  get_blog,
-  update_blog,
-  update_blog_by_state,
-  delete_blog
+  createBlog,
+  getBlogs,
+  getBlog,
+  updateBlog,
+  updateBlogState,
+  deleteBlog,
 }

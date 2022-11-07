@@ -2,53 +2,37 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const UserSchema = new mongoose.Schema({
-  firstname: {
+  firstName: {
     type: String,
-    required: true
+    required: true,
   },
-  lastname: {
+  lastName: {
     type: String,
-    required: true
+    required: true,
   },
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
+  articles: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Article',
+    },
+  ],
 })
 
-// The code in the UserScheme.pre() function is called a pre-hook.
-// Before the user information is saved in the database, this function will be called,
-// you will get the plain text password, hash it, and store it.
-// UserSchema.pre(
-//   'save',
-//   async function (next) {
-//       const user = this;
-//       const hash = await bcrypt.hash(this.password, 10);
-
-//       this.password = hash;
-//       next();
-//   }
-// );
-
-// // You will also need to make sure that the user trying to log in has the correct credentials. Add the following new method:
-// UserSchema.methods.isValidPassword = async function(password) {
-//   const user = this;
-//   const compare = await bcrypt.compare(password, user.password);
-
-//   return compare;
-// }
-
-  // encrypt password before saving document
+// encrypt password before saving document
 UserSchema.pre('save', function (next) {
   let user = this
 
@@ -66,7 +50,7 @@ UserSchema.pre('save', function (next) {
 })
 
 // Compare user inputted password with password in the database
-UserSchema.methods.isValidPassword = function (password) {
+UserSchema.methods.passwordIsValid = function (password) {
   // get password from the database
   const passwordHash = this.password
   return new Promise((resolve, reject) => {

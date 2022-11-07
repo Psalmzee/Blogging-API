@@ -1,13 +1,13 @@
 module.exports = async (req, res, next) => {
   try {
-    const userBlogs = req.user.blogs.map(id => id.toString())
+    const userArticles = req.user.articles.map(id => id.toString())
     const { id } = req.params
-    const isPresent = userBlogs.includes(id)
+    const isPresent = userArticles.includes(id)
 
     if (!isPresent) {
       return res.status(403).json({
-        status: 'Operation Failed!',
-        error: 'Forbidden!'
+        status: 'fail',
+        error: 'Forbidden'
       })
     }
 

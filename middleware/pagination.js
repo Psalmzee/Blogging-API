@@ -1,8 +1,7 @@
-const Blog = require('../models/blog.model')
+const Blog = require('../models/Article')
 
 module.exports = async (req, res, next) => {
   try {
-    
     req.pagination = {}
 
     let sizeFromQuery = parseInt(req.query.size)
