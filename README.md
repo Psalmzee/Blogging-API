@@ -18,17 +18,17 @@
 # WeBlog
 
 ## Backend NodeJS Second Semester Examination Project
-&mdash; A blogging-API built in partial fulfilment of the Altschool of Engineering focused in Backend Engineering (NodeJS) Second Semester Requirement by <a href="https://www.github.com/psalmzee">psalmzee</a>, a Backend Engineering student at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa</a>.
+#### A blogging-API built in partial fulfilment of the Altschool of Engineering focused in Backend Engineering (NodeJS) Second Semester Requirement by <a href="https://www.github.com/psalmzee">psalmzee</a>, a Backend Engineering student at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa</a>.
 
 
 ### Built With:
 
 <div align="left">
 
-![Javascript][javascript]
-![Node.js][node]
-![Express.js][express]
-![MongoDB][mongodb]
+- [Javascript][javascript]
+- [Node.js][node]
+- [Express.js][express]
+- [MongoDB][mongodb]
 
 </div>
 
