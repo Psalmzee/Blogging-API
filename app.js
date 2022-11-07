@@ -26,10 +26,9 @@ app.use(requestLogger)
 // set info response
 app.get('/', (req, res) => {
   res.json({
-    status: 'status',
+    status: 'success',
     message: 'Welcome to the Home Route of WeBlog API!',
-    message: 'For Further Information, see README below:',
-    readme: 'https://github.com/Psalmzee/WeBlog-API/blob/main/README.md',
+    README: 'https://github.com/Psalmzee/WeBlog-API/blob/main/README.md'
   })
 })
 
