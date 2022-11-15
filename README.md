@@ -169,11 +169,11 @@ npm run test
 
 ```json
 {
-  "firstName": "John",
-  "lastName": "Doe",
-  "username": "mightyjoe",
-  "email": "joe@mail.com",
-  "password": "Password0!"
+  "firstName": "Samson",
+  "lastName": "Okeji",
+  "username": "samAltschooler123",
+  "email": "altschooler@gmail.com",
+  "password": "Password@123"
 }
 ```
 
@@ -183,10 +183,10 @@ npm run test
 {
   "status": "success",
   "data": {
-    "firstName": "John",
-    "lastName": "Doe",
-    "username": "mightyjoe",
-    "email": "joe@mail.com",
+    "firstName": "Samson",
+    "lastName": "Okeji",
+    "username": "samAltschooler123",
+    "email": "altschooler@gmail.com",
     "articles": [],
     "_id": "6367c296ba7522bd8561e4f6"
   }
@@ -204,8 +204,8 @@ npm run test
 
 ```json
 {
-  "username": "mightyjoe",
-  "password": "Password0!"
+  "username": "samAltschooler123",
+  "password": "Password@123"
 }
 ```
 
@@ -214,8 +214,8 @@ npm run test
 ```json
 {
   "token": {token},
-  "username": "mightyjoe",
-  "name": "John"
+  "username": "samAltschooler123",
+  "name": "Samson Okeji"
 }
 ```
 
@@ -232,10 +232,10 @@ npm run test
 
 ```json
 {
-  "title": "The Adventures of John",
+  "title": "The Rise and fall of the Northern Empire",
   "tags": ["memoirs", "expose", "fun"],
-  "description": "Fun times as Johnny",
-  "body": "A very fun article that is long enough to be fun, and short enough to be ..fun!"
+  "description": "History of the northern people of Nigeria, a Popular myth",
+  "body": "lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!vlorem ipsum!lorem ipsum!vvvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!"
 }
 ```
 
@@ -245,13 +245,13 @@ npm run test
 {
   "status": "success",
   "data": {
-    "title": "The Adventures of John",
-    "description": "Fun times as Johnny",
+    "title": "The Rise and fall of the Northern Empire",
+    "description": "History of the northern people of Nigeria, a Popular myth",
     "author": "6367c296ba7522bd8561e4f6",
     "state": "draft",
     "read_count": 0,
     "tags": ["memoirs", "expose", "fun"],
-    "body": "A very fun article that is long enough to be fun, and short enough to be ..fun!",
+    "body": "lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!vlorem ipsum!lorem ipsum!vvvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!",
     "_id": "6367cc2271c384885108032f",
     "createdAt": "2022-11-06T15:00:50.202Z",
     "updatedAt": "2022-11-06T15:00:50.202Z",
@@ -385,11 +385,11 @@ npm run test
     "status": "success",
     "data": {
         "_id": "6367cc2271c384885108032f",
-        "title": "The Adventures of John",
-        "description": "Fun times as Johnny",
+        "title": "The witcher",
+        "description": "The witch who falls inlove",
         "author": {
             "_id": "6367c296ba7522bd8561e4f6",
-            "username": "mightyjoe"
+            "username": "samAltschooler123"
         },
         "state": "published",
         "read_count": 1,
@@ -397,7 +397,7 @@ npm run test
             "memoirs",
             "expose"
         ],
-        "body": "A very fun article that is long enough to be fun, and short enough to be ..fun! A sailor went to sea to see what he could see but all that he could see was the bottom of the deep blue sea.",
+        "body": "lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!vlorem ipsum!lorem ipsum!vvvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!",
         "createdAt": "2022-11-06T15:00:50.202Z",
         "updatedAt": "2022-11-06T19:38:16.100Z",
         "reading_time": 1
@@ -429,13 +429,13 @@ npm run test
   "status": "success",
   "data": {
     "_id": "6367cc2271c384885108032f",
-    "title": "The Adventures of John",
-    "description": "Fun times as Johnny",
+    "title": "The witcher",
+    "description": "The witch who falls inlove",
     "author": "6367c296ba7522bd8561e4f6",
     "state": "published",
     "read_count": 0,
     "tags": ["memoirs", "expose", "fun"],
-    "body": "A very fun article that is long enough to be fun, and short enough to be ..fun!",
+    "body": "lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!vlorem ipsum!lorem ipsum!vvvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!",
     "createdAt": "2022-11-06T15:00:50.202Z",
     "updatedAt": "2022-11-06T16:17:45.137Z",
     "reading_time": 1
@@ -458,7 +458,7 @@ npm run test
 ```json
 {
   "tags": ["memoirs", "expose"],
-  "body": "A very fun article that is long enough to be fun, and short enough to be ..fun! A sailor went to sea to see what he could see but all that he could see was the bottom of the deep blue sea."
+  "body": "Here is the updated content: lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!vlorem ipsum!lorem ipsum!vvvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!"
 }
 ```
 
@@ -469,13 +469,13 @@ npm run test
   "status": "success",
   "data": {
     "_id": "6367cc2271c384885108032f",
-    "title": "The Adventures of John",
-    "description": "Fun times as Johnny",
+    "title": "The witcher",
+    "description": "The witch who falls inlove",
     "author": "6367c296ba7522bd8561e4f6",
     "state": "published",
     "read_count": 0,
     "tags": ["memoirs", "expose"],
-    "body": "A very fun article that is long enough to be fun, and short enough to be ..fun! A sailor went to sea to see what he could see but all that he could see was the bottom of the deep blue sea.",
+    "body": "Here is the updated content: lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!vlorem ipsum!lorem ipsum!vvvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!vvlorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!lorem ipsum!",
     "createdAt": "2022-11-06T15:00:50.202Z",
     "updatedAt": "2022-11-06T16:22:29.326Z",
     "reading_time": 1
