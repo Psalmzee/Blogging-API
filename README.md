@@ -1,14 +1,19 @@
 
 <!-- Project Shields -->
 <div align="left">
-  
+
+  # About the project
+## This is a containerized NodeJS application to be deployed to AKS
+
+### This project is a sample blog-API application for the setup of a complete CI/CD Azure pipeline for Amorserv Final Asssessment
+
+### The built image will be stored in Azure Container Registry.
 
 <div>
   <p align="left">
     <a href="https://github.com/Psalmzee/WeBlog-API/blob/main/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://altschoolafrica-weblog-api.cyclic.app/">Demo</a>
     ·
     <a href="https://github.com/Psalmzee/WeBlog-API/issues">Report Bug</a>
     ·
@@ -16,9 +21,6 @@
   </p>
 </div>
 # WeBlog
-
-## Backend NodeJS Second Semester Examination Project
-#### A blogging-API built in partial fulfilment of the Altschool of Engineering focused in Backend Engineering (NodeJS) Second Semester Requirement by <a href="https://www.github.com/psalmzee">psalmzee</a>, a Backend Engineering student at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa</a>.
 
 
 ##### Tools/Languages
@@ -34,57 +36,51 @@
 
 ---
 
-<!-- AltSchool Requirements -->
-
 ## Requirements
 
 <details>
 
-<summary> <strong>Requirements for the examination project</strong> </summary>
+<summary> <strong>Requirements/Functionalities for the Application</strong> </summary>
 
-- [x] Users should have a first_name, last_name, email, password,
+- [x] Users have a first_name, last_name, email, password.
 
-- [x] A user should be able to sign up and sign in into the blog app
+- [x] A user is able to signup and signin into the blog app
 
-- [x] Use JWT as authentication strategy and expire the token after 1 hour
+- [x] JWT is used as authentication strategy and the token expires after 1 hour.
 
-- [x] A blog can be in two states; draft and published
+- [x] A blog can be in two states; draft and published.
 
-- [x] Logged in and not logged in users should be able to get a list of published blogs created
+- [x] Logged in and non-logged in users are able to get a list of published blogs created.
 
-- [x] Logged in and not logged in users should be able to to get a published blog
+- [x] Logged in and non-logged in users are able to get a published blog.
 
-- [x] Logged in users should be able to create a blog.
+- [x] Logged in users are able to create a blog.
 
-- [x] When a blog is created, it is in draft state
+- [x] When a blog is created, it is in draft state by default.
 
-- [x] The owner of the blog should be able to update the state of the blog to published
+- [x] The owner of the blog is able to update the state of the blog to published.
 
-- [x] The owner of a blog should be able to edit the blog in draft or published state
+- [x] The owner of a blog is able to edit the blog in draft or published state
 
-- [x] The owner of the blog should be able to delete the blog in draft or published state
+- [x] The owner of the blog is able to delete the blog in draft or published state
 
-- [x] The owner of the blog should be able to get a list of their blogs.
+- [x] The owner of the blog is able to get a list of their blogs.
 
-- [x] The endpoint should be paginated
+- [x] The endpoints are paginated.
 
-- [x] It should be filterable by state
+- [x] Created Blogs have title, description, tags, author, timestamp, state, read_count, reading_time and body.
 
-- [x] Blogs created should have title, description, tags, author, timestamp, state, read_count, reading_time and body.
+- [x] The list of blogs endpoint that can be accessed by both logged in and non-logged in users are paginated:
 
-- [x] The list of blogs endpoint that can be accessed by both logged in and not logged in users should be paginated:
+  - [x] It is configured to 20 blogs per page.
 
-  - [x] default it to 20 blogs per page.
+  - [x] It is searchable by author, title and tags.
 
-  - [x] It should also be searchable by author, title and tags.
+  - [x] It is orderable by read_count, reading_time and timestamp
 
-  - [x] It should also be orderable by read_count, reading_time and timestamp
+- [x] When a single blog is requested, the API returns the user information (the author) with the blog. The read_count of the blog too is updated by 1.
 
-- [x] When a single blog is requested, the api should return the user information (the author) with the blog. The read_count of the blog too should be updated by 1
-
-- [x] Come up with any algorithm for calculating the reading_time of the blog.
-
-- [x] Write tests for all endpoints
+- [x] An algorithm for calculating the reading_time of the blog was developed.
 
 ---
 
@@ -156,10 +152,6 @@ npm run test
 
 ## Usage
 
-### Base URL
-
-- https://altschoolafrica-weblog-api.cyclic.app/
-
 ### Creating a user
 
 - Route: /api/signup
@@ -171,8 +163,8 @@ npm run test
 {
   "firstName": "Samson",
   "lastName": "Okeji",
-  "username": "samAltschooler123",
-  "email": "altschooler@gmail.com",
+  "username": "samsonokeji",
+  "email": "example@gmail.com",
   "password": "Password@123"
 }
 ```
@@ -185,8 +177,8 @@ npm run test
   "data": {
     "firstName": "Samson",
     "lastName": "Okeji",
-    "username": "samAltschooler123",
-    "email": "altschooler@gmail.com",
+    "username": "samsonokeji",
+    "email": "example@gmail.com",
     "articles": [],
     "_id": "6367c296ba7522bd8561e4f6"
   }
@@ -204,7 +196,7 @@ npm run test
 
 ```json
 {
-  "username": "samAltschooler123",
+  "username": "samsonokeji",
   "password": "Password@123"
 }
 ```
@@ -214,7 +206,7 @@ npm run test
 ```json
 {
   "token": {token},
-  "username": "samAltschooler123",
+  "username": "samsonokeji",
   "name": "Samson Okeji"
 }
 ```
@@ -389,7 +381,7 @@ npm run test
         "description": "The witch who falls inlove",
         "author": {
             "_id": "6367c296ba7522bd8561e4f6",
-            "username": "samAltschooler123"
+            "username": "samsonokeji"
         },
         "state": "published",
         "read_count": 1,
@@ -501,7 +493,4 @@ npm run test
 ---
 ## PROJECT OWNER
 - NAME: Samson Okeji 
-- ALTSCHOOL EMAIL: engrsamsonokeji@gmail.com
-- TRACK: Backend Engineering (NodeJS)
-
-
+- EMAIL: engrsamsonokeji@gmail.com
